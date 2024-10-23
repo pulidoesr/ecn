@@ -15,6 +15,18 @@
   "AGMI": ["value1", "value2", "value3"]
 },
 {
-  "WHLO": 38, "ITNO":1, "PLCD":42, "EOQM":46,"PUIT":49,"SUWH":50,"DPID":51, "UNMU":55, "ORTY":57, "SATD":58,"OPLC":59,"STAT":61,"AGMI":63
+  "WHLO": 38, 
+  "ITNO":1,
+  "PLCD":42,
+  "EOQM":46,
+  "PUIT":49,
+  "SUWH":50,
+  "DPID":51,
+  "UNMU":55,
+  "ORTY":57, 
+  "SATD":58,
+  "OPLC":59,
+  "STAT":61,
+  "AGMI":63
 }
 ]
