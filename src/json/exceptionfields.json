@@ -1,7 +1,7 @@
 [
 {
-  "WHLO": ["value1", "value2", "value3"],
-  "ITNO": ["value1", "value2", "value3"],
+  "ITNO": [10000],
+  "WHLO": ["100", "110", "120", "140","320","330","350"],
   "PLCD": ["value1", "value2", "value3"],
   "EOQM": ["value1", "value2", "value3"],
   "PUIT": ["value1", "value2", "value3"],
@@ -13,10 +13,11 @@
   "OPLC": ["value1", "value2", "value3"],
   "STAT": ["value1", "value2", "value3"],
   "AGMI": ["value1", "value2", "value3"]
+  
 },
 {
-  "WHLO": 38, 
   "ITNO":1,
+  "WHLO": 38, 
   "PLCD":42,
   "EOQM":46,
   "PUIT":49,
