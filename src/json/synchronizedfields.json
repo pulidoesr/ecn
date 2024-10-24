@@ -2,6 +2,7 @@
   {
     "ITNO": [1000],
     "WHLO": [100,110,120,140,320,330,350],
+    "WHSY": [5,5,5,5,5,5,5],
     "INSC": ["value1", "value2", "value3"],
     "WHSL": ["value1", "value2", "value3"],
     "TOMU": ["value1", "value2", "value3"],
