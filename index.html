@@ -4,19 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/style.css">
-    <script src="/src/js/conversion.js" type="module"></script>
+    <script src="/src/js/main.js" type="module" defer></script>
     <title>ECN Test</title>
 </head>
 <body>
   <header class="divider" id="main-header"></header>
   <h1>Review ECN Exception & Synchronized Fields</h1>
+  <form id="jsonForm">
+    <label for="fileName">Enter JSON file name:</label>
+    <input type="text" id="fileName" placeholder="e.g., synchronizedfields.json" required>
+    <button type="submit">Load JSON</button>
+  </form>
+  
 
-  <!-- Button 1 links to page1.html -->
-  <a href="./src/exceptionfields.html" class="button">Show Exception Fields</a>
+  <!-- Tab Buttons -->
+  <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Group1')">Group 1</button>
+      <button class="tablinks" onclick="openTab(event, 'Group2')">Group 2</button>
+      <button class="tablinks" onclick="openTab(event, 'Group3')">Group 3</button>
+  </div>
 
-  <!-- Button 2 links to page2.html -->
-  <a href="./src/synchronizedfields.html" class="button">Show Synchonized Fields</a>
+  <!-- Tab Content Areas -->
+  <div id="Group1" class="tabcontent">
+      <table id="jsonTable1">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+      </table>
+  </div>
 
+  <div id="Group2" class="tabcontent">
+      <table id="jsonTable2">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+      </table>
+  </div>
+
+  <div id="Group3" class="tabcontent">
+      <table id="jsonTable3">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+      </table>
+  </div>
 <footer id="main-footer"></footer>
 </body>
 </html>

@@ -1,0 +1,33 @@
+[
+{
+  "ITNO": [10000],
+  "WHLO": ["100", "110", "120", "140","320","330","350"],
+  "PLCD": ["value1", "value2", "value3"],
+  "EOQM": ["value1", "value2", "value3"],
+  "PUIT": ["value1", "value2", "value3"],
+  "SUWH": ["value1", "value2", "value3"],
+  "DPID": ["value1", "value2", "value3"],
+  "UNMU": ["value1", "value2", "value3"],
+  "ORTY": ["value1", "value2", "value3"],
+  "SATD": ["value1", "value2", "value3"],
+  "OPLC": ["value1", "value2", "value3"],
+  "STAT": ["value1", "value2", "value3"],
+  "AGMI": ["value1", "value2", "value3"]
+  
+},
+{
+  "ITNO":1,
+  "WHLO": 38, 
+  "PLCD":42,
+  "EOQM":46,
+  "PUIT":49,
+  "SUWH":50,
+  "DPID":51,
+  "UNMU":55,
+  "ORTY":57, 
+  "SATD":58,
+  "OPLC":59,
+  "STAT":61,
+  "AGMI":63
+}
+]
