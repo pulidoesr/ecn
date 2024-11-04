@@ -49,6 +49,12 @@ async function loadjson(fileName) {
      const group1Fields = {};
      const group2Fields = {};
      const group3Fields = {};
+     const group4Fields = {};
+     const group5Fields = {};
+     const group6Fields = {};
+     const group7Fields = {};
+     const group8Fields = {};
+     const group9Fields = {};
 
      const fieldKeys = Object.keys(fields);
      fieldKeys.forEach((key, index) => {
