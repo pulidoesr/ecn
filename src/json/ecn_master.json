@@ -1,0 +1,14 @@
+[
+  {
+    "Make Item": ["ITTY_ecn.json", "MFG_ecn.json","MFS_ecn.json", "MRM_ecn.json", "PEX_ecn.json","PLP_ecn.json", "PriceList_ecn.json"]
+  },
+  {
+    "Buy Item": ["ITTY_ecn.json", "MFG_ecn.json","MFS_ecn.json", "MRM_ecn.json", "PEX_ecn.json","PLP_ecn.json", "PriceList_ecn.json"]
+  },
+  {
+    "Item Make 2": ["ITTY_ecn.json", "MFG_ecn.json","MFS_ecn.json", "MRM_ecn.json", "PEX_ecn.json","PLP_ecn.json", "PriceList_ecn.json"]
+  },
+  {
+    "Kevin Items": ["ITTY_ecn.json", "MFG_ecn.json","MFS_ecn.json", "MRM_ecn.json", "PEX_ecn.json","PLP_ecn.json", "PriceList_ecn.json"]
+  }
+]

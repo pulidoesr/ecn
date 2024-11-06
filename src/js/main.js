@@ -1,13 +1,60 @@
-document.getElementById('jsonForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const fileName = document.getElementById('fileName').value;
-  if (!fileName) {
-    console.log("No file name provided.");
-  } else {
-    loadjson(fileName);
+
+document.addEventListener('DOMContentLoaded', function() {
+const categorySelect = document.getElementById('categorySelect');
+const fileSelect = document.getElementById('fileSelect');
+let categories = []; 
+
+// Load main JSON file and populate category dropdown
+fetch('/src/json/ecn_master.json') 
+  .then(response => response.json())
+  .then(data => {
+    categories = data; 
+    populateCategorySelect(data);
+  })
+  .catch(error => console.error('Error loading categories:', error));
+
+ // Populate category dropdown
+ function populateCategorySelect(categories) {
+  categories.forEach((category) => {
+    const categoryName = Object.keys(category)[0];
+    const option = document.createElement('option');
+    option.value = categoryName;
+    option.textContent = categoryName;
+    categorySelect.appendChild(option);
+  });
+}
+
+// Event listener for category selection
+categorySelect.addEventListener('change', function() {
+  const selectedCategory = categorySelect.value;
+  let i = 0;
+  if (selectedCategory) {
+    const selectedCategoryFiles = getFilesForCategory(selectedCategory);
+    selectedCategoryFiles.forEach(file => {
+    i +=1
+    loadjson(file,i);
+     console.log(file);
+    });
   }
 });
+
+ // Function to get files for the selected category
+function getFilesForCategory(selectedCategory) {
+  console.log("Selected Category:", selectedCategory); // Check the selected category value
+
+  // Attempt to find the matching category object
+  const categoryObj = categories.find(cat => Object.keys(cat)[0] === selectedCategory);
+
+  if (categoryObj) {
+    console.log("Matching category object found:", categoryObj); // Log the found object
+    return categoryObj[selectedCategory];
+  } else {
+    console.log("No matching category found for:", selectedCategory);
+    return [];
+  }
+}
+});
+
 
 // Tab function to show/hide content
 window.openTab = function openTab(evt, groupName) {
@@ -27,50 +74,40 @@ window.openTab = function openTab(evt, groupName) {
   document.getElementById(groupName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
 document.getElementById("Group1").style.display = "block";
 document.querySelector(".tablinks").classList.add("active");
 
-
-async function loadjson(fileName) {
+async function loadjson(fileName,i) {
   try {
     const response = await fetch(`/src/json/${fileName}`);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error(`Error fetching file: ${fileName} (status: ${response.status})`);
     }
     const jsonData = await response.json();
-    console.log("Response status:", response.status);
-    console.log("Fetched JSON data:", jsonData);
+
+    if (!Array.isArray(jsonData) || jsonData.length < 2) {
+      throw new Error(`Unexpected JSON structure in file: ${fileName}`);
+    }
 
     // Extract headers and fields from JSON
     const headers = jsonData[1]; // Second entry contains headers
     const fields = jsonData[0];  // First entry contains fields
 
      // Separate fields into three groups based on desired distribution
-     const group1Fields = {};
-     const group2Fields = {};
-     const group3Fields = {};
-     const group4Fields = {};
-     const group5Fields = {};
-     const group6Fields = {};
-     const group7Fields = {};
-     const group8Fields = {};
-     const group9Fields = {};
+     const groupFields = {};
+ 
 
      const fieldKeys = Object.keys(fields);
-     fieldKeys.forEach((key, index) => {
-      if (index < fieldKeys.length / 3) {
-        group1Fields[key] = fields[key];
-      } else if (index < (2 * fieldKeys.length) / 3) {
-        group2Fields[key] = fields[key];
-      } else {
-        group3Fields[key] = fields[key];
-      }
-    });
+     fieldKeys.forEach((key) => {
+    
+        groupFields[key] = fields[key];
+    
+      });
 
         // Populate tables with fields and headers
-        populateTable('jsonTable1', group1Fields, headers);
-        populateTable('jsonTable2', group2Fields, headers);
-        populateTable('jsonTable3', group3Fields, headers);
+        populateTable('jsonTable'+ i, groupFields, headers);
+
 
   } catch (error) {
     console.error('Error fetching or parsing the JSON file:', error);
@@ -90,8 +127,6 @@ function populateTable(tableId, fields, headers) {
   // Create headers based on provided header definitions
   Object.keys(fields).forEach(key => {
     const th = document.createElement('th');
-    console.log(key);
-    console.log(headers[key]);
     th.textContent = key || headers[key]; // Use header if available, or key as fallback
     thead.appendChild(th);
   });

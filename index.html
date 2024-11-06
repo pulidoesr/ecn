@@ -11,12 +11,16 @@
   <header class="divider" id="main-header"></header>
   <h1>Infor M3 Extended Fields for ECN</h1>
   <form id="jsonForm">
-    <label for="fileName">Enter JSON file name:</label>
-    <input type="text" id="fileName" placeholder="e.g., synchronizedfields.json" required>
-    <button type="submit">Load JSON</button>
+    <label for="categorySelect">Category:</label>
+    <select id="categorySelect">
+      <option value="" selected disabled>Select a category</option> <!-- Blank option -->
+    </select>
+
   </form>
   
-
+  <!-- Tab Buttons -->
+   <!-- Tab Container -->
+<div class="tab-container">
   <!-- Tab Buttons -->
   <div class="tab">
       <button class="tablinks" onclick="openTab(event, 'Group1')">Group 1</button>
@@ -26,8 +30,6 @@
       <button class="tablinks" onclick="openTab(event, 'Group5')">Group 5</button>
       <button class="tablinks" onclick="openTab(event, 'Group6')">Group 6</button>
       <button class="tablinks" onclick="openTab(event, 'Group7')">Group 7</button>
-      <button class="tablinks" onclick="openTab(event, 'Group8')">Group 8</button>
-      <button class="tablinks" onclick="openTab(event, 'Group9')">Group 9</button>
   </div>
 
   <!-- Tab Content Areas -->
@@ -37,14 +39,12 @@
           <tbody></tbody>
       </table>
   </div>
-
   <div id="Group2" class="tabcontent">
       <table id="jsonTable2">
           <thead><tr></tr></thead>
           <tbody></tbody>
       </table>
   </div>
-
   <div id="Group3" class="tabcontent">
       <table id="jsonTable3">
           <thead><tr></tr></thead>
@@ -56,35 +56,24 @@
         <thead><tr></tr></thead>
         <tbody></tbody>
     </table>
-    <div id="Group5" class="tabcontent">
-      <table id="jsonTable5">
-          <thead><tr></tr></thead>
-          <tbody></tbody>
-      </table>
-      <div id="Group6" class="tabcontent">
-        <table id="jsonTable6">
-            <thead><tr></tr></thead>
-            <tbody></tbody>
-        </table>
-        <div id="Group7" class="tabcontent">
-          <table id="jsonTable7">
-              <thead><tr></tr></thead>
-              <tbody></tbody>
-          </table>
-          <div id="Group8" class="tabcontent">
-            <table id="jsonTable8">
-                <thead><tr></tr></thead>
-                <tbody></tbody>
-            </table>
-            <div id="Group9" class="tabcontent">
-              <table id="jsonTable9">
-                  <thead><tr></tr></thead>
-                  <tbody></tbody>
-              </table>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div id="Group5" class="tabcontent">
+    <table id="jsonTable5">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
+  </div>
+  <div id="Group6" class="tabcontent">
+    <table id="jsonTable6">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
+  </div>
+  <div id="Group7" class="tabcontent">
+    <table id="jsonTable7">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
   </div>
 </div>
 <footer id="main-footer"></footer>
