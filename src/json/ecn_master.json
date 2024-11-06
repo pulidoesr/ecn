@@ -10,5 +10,11 @@
   },
   {
     "Kevin Items": ["ITTY_ecn.json", "MFG_ecn.json","MFS_ecn.json", "MRM_ecn.json", "PEX_ecn.json","PLP_ecn.json", "PriceList_ecn.json"]
+  },
+  {
+    "Eduardo Items": ["ITTY_ecn.json", "","MFS_ecn.json", "", "PEX_ecn.json","", "PriceList_ecn.json"]
+  },
+  {
+    "Alex Items": ["", "","", "", "PEX_ecn.json","", "PriceList_ecn.json"]
   }
 ]

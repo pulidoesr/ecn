@@ -1,8 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 const categorySelect = document.getElementById('categorySelect');
-const fileSelect = document.getElementById('fileSelect');
-let categories = []; 
+let categories = []; // Categories from the master JSON
+let i = 0; // Count files to process
 
 // Load main JSON file and populate category dropdown
 fetch('/src/json/ecn_master.json') 
@@ -17,14 +17,21 @@ fetch('/src/json/ecn_master.json')
  function resetScreen() {
   // Clear all dynamically created tables or elements
   const tabContentContainers = document.querySelectorAll(".tabcontent");
-  tabContentContainers.forEach(container => {
-    container.innerHTML = ''; // Clear inner HTML of each tab content
+  tabContentContainers.forEach(table => {
+    table.querySelector('thead').innerHTML = '';  // Clear the header row
+    table.querySelector('tbody').innerHTML = '';  // Clear the body rows
   });
-
+  
   // Optionally, reset visibility of tabs and active states
   const tabLinks = document.querySelectorAll(".tablinks");
   tabLinks.forEach(link => link.classList.remove("active"));
   document.getElementById("Group1").style.display = "none"; // Hide initial group
+  document.getElementById("Group2").style.display = "none"; // Hide initial group
+  document.getElementById("Group3").style.display = "none"; // Hide initial group
+  document.getElementById("Group4").style.display = "none"; // Hide initial group
+  document.getElementById("Group5").style.display = "none"; // Hide initial group
+  document.getElementById("Group6").style.display = "none"; // Hide initial group
+  document.getElementById("Group7").style.display = "none"; // Hide initial group
 }
 
  // Populate category dropdown
@@ -41,16 +48,25 @@ fetch('/src/json/ecn_master.json')
 // Event listener for category selection
 categorySelect.addEventListener('change', function() {
   const selectedCategory = categorySelect.value;
-  let i = 0;
+
   if (i > 0) {
     resetScreen();
+    i = 0;
   }
   if (selectedCategory) {
     const selectedCategoryFiles = getFilesForCategory(selectedCategory);
+     // Show Group1 and set the first tab link as active
+     document.getElementById("Group1").style.display = "block";
+     const firstTabLink = document.querySelector(".tablinks");
+     if (firstTabLink) {
+       firstTabLink.classList.add("active");
+     }
     selectedCategoryFiles.forEach(file => {
-    i +=1
-    loadjson(file,i);
-     console.log(file);
+      i +=1;
+      if (file){
+         loadjson(file,i);
+         console.log(file);
+      }
     });
   }
 });
@@ -91,10 +107,10 @@ window.openTab = function openTab(evt, groupName) {
   document.getElementById(groupName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
+/* 
 document.getElementById("Group1").style.display = "block";
 document.querySelector(".tablinks").classList.add("active");
-
+ */
 async function loadjson(fileName,i) {
   try {
     const response = await fetch(`/src/json/${fileName}`);
@@ -134,13 +150,28 @@ async function loadjson(fileName,i) {
  // Update populateTable function to handle fields and headers
 function populateTable(tableId, fields, headers) {
   const table = document.getElementById(tableId);
+   // Ensure <thead> and <tbody> are present
+   let dthead = table.querySelector('thead');
+   let dtbody = table.querySelector('tbody');
+   
+   if (!dthead) {
+     dthead = document.createElement('thead');
+     table.appendChild(dthead);
+   }
+   if (!dtbody) {
+     dtbody = document.createElement('tbody');
+     table.appendChild(dtbody);
+   }
+    // Ensure there's a <tr> in <thead> for headers
+    let theadRow = dthead.querySelector('tr');
+    if (!theadRow) {
+       theadRow = document.createElement('tr');
+       dthead.appendChild(theadRow);
+       }
+  
   const thead = table.querySelector('thead tr');
   const tbody = table.querySelector('tbody');
   
-  // Clear previous content
-  thead.innerHTML = '';
-  tbody.innerHTML = '';
-
   // Create headers based on provided header definitions
   Object.keys(fields).forEach(key => {
     const th = document.createElement('th');
