@@ -13,6 +13,20 @@ fetch('/src/json/ecn_master.json')
   })
   .catch(error => console.error('Error loading categories:', error));
 
+ // Function to clear existing content
+ function resetScreen() {
+  // Clear all dynamically created tables or elements
+  const tabContentContainers = document.querySelectorAll(".tabcontent");
+  tabContentContainers.forEach(container => {
+    container.innerHTML = ''; // Clear inner HTML of each tab content
+  });
+
+  // Optionally, reset visibility of tabs and active states
+  const tabLinks = document.querySelectorAll(".tablinks");
+  tabLinks.forEach(link => link.classList.remove("active"));
+  document.getElementById("Group1").style.display = "none"; // Hide initial group
+}
+
  // Populate category dropdown
  function populateCategorySelect(categories) {
   categories.forEach((category) => {
@@ -28,6 +42,9 @@ fetch('/src/json/ecn_master.json')
 categorySelect.addEventListener('change', function() {
   const selectedCategory = categorySelect.value;
   let i = 0;
+  if (i > 0) {
+    resetScreen();
+  }
   if (selectedCategory) {
     const selectedCategoryFiles = getFilesForCategory(selectedCategory);
     selectedCategoryFiles.forEach(file => {
