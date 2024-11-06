@@ -1,3 +1,5 @@
+// Develop by: Eduardo Pulido
+// Date: 11/06/2024
 
 document.addEventListener('DOMContentLoaded', function() {
 const categorySelect = document.getElementById('categorySelect');
@@ -102,15 +104,11 @@ window.openTab = function openTab(evt, groupName) {
   for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  
   // Show current tab content and add active class to the button
   document.getElementById(groupName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-/* 
-document.getElementById("Group1").style.display = "block";
-document.querySelector(".tablinks").classList.add("active");
- */
+
 async function loadjson(fileName,i) {
   try {
     const response = await fetch(`/src/json/${fileName}`);
@@ -122,26 +120,16 @@ async function loadjson(fileName,i) {
     if (!Array.isArray(jsonData) || jsonData.length < 2) {
       throw new Error(`Unexpected JSON structure in file: ${fileName}`);
     }
-
     // Extract headers and fields from JSON
     const headers = jsonData[1]; // Second entry contains headers
     const fields = jsonData[0];  // First entry contains fields
-
-     // Separate fields into three groups based on desired distribution
-     const groupFields = {};
- 
-
-     const fieldKeys = Object.keys(fields);
-     fieldKeys.forEach((key) => {
-    
+    const groupFields = {};
+    const fieldKeys = Object.keys(fields);
+    fieldKeys.forEach((key) => { 
         groupFields[key] = fields[key];
-    
       });
-
-        // Populate tables with fields and headers
-        populateTable('jsonTable'+ i, groupFields, headers);
-
-
+    // Populate tables with fields and headers
+    populateTable('jsonTable'+ i, groupFields, headers);
   } catch (error) {
     console.error('Error fetching or parsing the JSON file:', error);
   }
