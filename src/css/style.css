@@ -191,3 +191,11 @@ tbody tr:nth-child(even) {
   color: white;
   font-weight: bold;
 }
+
+table th:first-child,
+table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #a1cc90; /* Background color to differentiate fixed column */
+  z-index: 1; /* Ensures the first column stays on top */
+}
