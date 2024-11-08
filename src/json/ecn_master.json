@@ -16,5 +16,14 @@
   },
   {
     "Alex Items": ["", "","", "", "PEX_ecn.json","", "PriceList_ecn.json"]
+  },
+  {
+    "James Items": ["ITTY_ecn.json", "","", "", "","", "PriceList_ecn.json"]
+  },
+  {
+    "Rick Items": ["ITTY_ecn.json", "","", "", "PEX_ecn.json","", "PriceList_ecn.json"]
+  },
+  {
+    "Tony Items": ["ITTY_ecn.json", "","", "", "PEX_ecn.json","", "PriceList_ecn.json"]
   }
 ]
