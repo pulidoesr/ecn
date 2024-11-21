@@ -4,8 +4,8 @@
 "CUCD": ["USD","CAD","USD","USD","USD","USD"]
   },
   {
-    "PRRF": [],
-    "CUCD": []
+    "PRRF": ["",0],
+    "CUCD": ["Currency",212]
       }
 ]
 

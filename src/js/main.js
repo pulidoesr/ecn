@@ -163,7 +163,7 @@ function populateTable(tableId, fields, headers) {
   // Create headers based on provided header definitions
   Object.keys(fields).forEach(key => {
     const th = document.createElement('th');
-    th.textContent = key || headers[key]; // Use header if available, or key as fallback
+    th.textContent = headers[key][0] + " | ID: " + headers[key][1]; // Use header if available, or key as fallback
     thead.appendChild(th);
   });
   

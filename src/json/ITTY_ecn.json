@@ -1,7 +1,7 @@
 [
  {
-"ITTY": ["MFG", "MFS", "MRM", "PEX", "PLP", "POP", "PRM"],
 "CONO": ["100", "100", "100", "100", "100", "100", "100"],
+"ITTY": ["MFG", "MFS", "MRM", "PEX", "PLP", "POP", "PRM"],
 "STAT": ["20", "20", "20", "20", "20", "10", "20"],
 "FUDS": ["", "", "", "", "", "", ""],
 "BUAR": ["", "---", "---", "---", "---", "---", "---"],
@@ -33,7 +33,7 @@
   "CFI5": ["Inspect Req",25],
   "PUUN": ["Purchase UoM",26],
   "SALE": ["Sale Item",27],
-  "TPLI": [],
+  "TPLI": ["Template Item Number", 233],
   "ILEN": ["Length",29],
   "IWID": ["Width",30],
   "IHEI": ["Height",31],
