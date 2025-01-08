@@ -6,9 +6,9 @@
 "DMCF": ["","","0"]
   },
   {
-    "ALUN": [],
-    "DCCD": [],
-    "COFA": [],
-    "DMCF": []
+    "ALUN": ["Alternate U/M",89],
+    "DCCD": ["Number of Decimal Places",231],
+    "COFA": ["Conversion Factor",84],
+    "DMCF": ["Conversion Form",85]
       }
 ]
